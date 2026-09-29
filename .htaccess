@@ -1,0 +1,11 @@
+# セキュリティ: 設定ファイルや生データへの直アクセスを禁止
+<FilesMatch "^(config\.php|.*\.json|.*\.md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# PHPの実行時間上限（StarServerの許可範囲内で最大化）
+<IfModule mod_php.c>
+    php_value max_execution_time 180
+    php_value memory_limit 256M
+</IfModule>
